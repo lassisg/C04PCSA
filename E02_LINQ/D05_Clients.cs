@@ -43,6 +43,7 @@ namespace E02_LINQ
                     new City() { Name = "Lisboa", Country = "Portugal" }
                 };
 
+                // TODO: Better to use Location = listCity.FirstOrDefault(l => l.Name == "Porto")
                 listClient = new List<Client>()
                 {
                     new Client() { Name = "Amália", Location = listCity.ElementAt(0), Age = 35 },
@@ -201,12 +202,12 @@ namespace E02_LINQ
             private void WriteNameAge(IEnumerable<Client> filteredList)
             {
                 Console.WriteLine($"\n+{new string('-', 9)}+{new string('-', 7)}+");
-                Console.WriteLine($"{"| Nome".PadRight(9)} | {"Idade".PadRight(2)} |");
+                Console.WriteLine($"{"| Nome",-9} | {"Idade",-2} |");
                 Console.WriteLine($"+{new string('-', 9)}+{new string('-', 7)}+");
 
                 foreach (var item in filteredList)
                 {
-                    Console.WriteLine($"| {item.Name.PadRight(7)} | {item.Age}{"".PadRight(3)} |");
+                    Console.WriteLine($"| {item.Name,-7} | {item.Age}{"",-3} |");
                 }
 
                 Console.WriteLine($"+{new string('-', 9)}+{new string('-', 7)}+");
@@ -215,12 +216,12 @@ namespace E02_LINQ
             private void WriteNameCountry(IEnumerable<Client> filteredList)
             {
                 Console.WriteLine($"\n+{new string('-', 9)}+{new string('-', 12)}+");
-                Console.WriteLine($"{"| Nome".PadRight(9)} | {"País".PadRight(10)} |");
+                Console.WriteLine($"{"| Nome",-9} | {"País",-10} |");
                 Console.WriteLine($"+{new string('-', 9)}+{new string('-', 12)}+");
 
                 foreach (var item in filteredList)
                 {
-                    Console.WriteLine($"| {item.Name.PadRight(7)} | {item.Location.Country.PadRight(10)} |");
+                    Console.WriteLine($"| {item.Name,-7} | {item.Location.Country,-10} |");
                 }
 
                 Console.WriteLine($"+{new string('-', 9)}+{new string('-', 12)}+");
